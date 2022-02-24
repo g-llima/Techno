@@ -8,7 +8,8 @@ function Header() {
 
   window.addEventListener("resize", () => setIsMenuOpen(false));
   window.addEventListener("scroll", () => {
-    if (window.scrollY >= 200) {
+    if (Math.ceil(window.scrollY) > 201) {
+      if (shrink === true) return;
       setShrink(true);
     } else {
       setShrink(false);
@@ -16,7 +17,10 @@ function Header() {
   });
 
   return (
-    <header className={"header " + (shrink ? "shrink" : null)}>
+    <header
+      className="header"
+      style={{ boxShadow: `${shrink ? "1px 1px 1px #dbdbdb" : "none"}` }}
+    >
       <div className="content">
         <Link to="/" onClick={() => setIsMenuOpen(false)}>
           <h1 className="title">

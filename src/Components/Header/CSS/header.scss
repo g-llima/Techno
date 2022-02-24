@@ -1,5 +1,5 @@
 .shrink {
-  box-shadow: 2px 2px 2px #dbdbdb;
+  padding: 0 2rem !important;
 }
 .header {
   position: sticky;
@@ -9,7 +9,7 @@
 
   .content {
     display: flex;
-    padding: 14px 2rem;
+    padding: 5px 2rem;
     justify-content: space-between;
     align-items: center;
     max-width: 1600px;
