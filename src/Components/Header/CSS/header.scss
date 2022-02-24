@@ -1,0 +1,143 @@
+.shrink {
+  box-shadow: 2px 2px 2px #dbdbdb;
+}
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: white;
+
+  .content {
+    display: flex;
+    padding: 14px 2rem;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    transition: all 0.2s;
+
+    h1 {
+      font-weight: 400;
+      color: var(--darkest_gray-color);
+      border-bottom: 1px solid transparent;
+      border-top: 1px solid transparent;
+      transition: all 0.3s;
+
+      &:hover {
+        border-color: var(--orange-color);
+        border-color: var(--orange-color);
+      }
+
+      span {
+        color: var(--orange-color);
+        font-weight: 700;
+      }
+    }
+
+    .navContainer {
+      ul {
+        display: flex;
+        align-items: center;
+
+        .mobileOnly {
+          display: none;
+        }
+
+        li {
+          margin: 0 1rem;
+
+          a {
+            color: var(--dark_gray-color);
+            transition: all 0.2s;
+            position: relative;
+            bottom: 0;
+            border-bottom: 1px solid transparent;
+
+            &:hover {
+              color: var(--orange-color);
+              bottom: 3px;
+              border-bottom: 1px solid var(--orange-color);
+            }
+          }
+        }
+      }
+    }
+    .subBTN {
+      padding: 10px 20px;
+      background-color: var(--orange-color);
+      border: 1px solid var(--orange-color);
+      color: white;
+      border-radius: 3px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s ease-in;
+      bottom: 0;
+      position: relative;
+
+      &:hover {
+        color: var(--orange-color);
+        box-shadow: inset 120px 0px 0px white;
+        bottom: 3px;
+      }
+    }
+  }
+  .menuBTN {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .header {
+    h1 {
+      z-index: 999;
+    }
+
+    .menuBTN {
+      display: block;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      outline: none;
+      z-index: 999;
+      color: var(--orange-color);
+      transition: transform 0.2s ease-out;
+    }
+    .desktopOnly {
+      display: none;
+    }
+    .navContainer {
+      ul {
+        flex-direction: column;
+        position: fixed;
+        height: 100vh;
+        width: 320px;
+        border: 1px solid var(--light_gray-color);
+        background: white;
+        border-top: none;
+        top: 0;
+        padding-top: 5rem;
+        z-index: -1;
+
+        right: -10rem;
+        opacity: 0;
+        visibility: hidden;
+
+        overflow: hidden;
+        transition: all 0.3s;
+
+        .mobileOnly {
+          display: block !important;
+        }
+        li {
+          padding: 1rem 0;
+        }
+      }
+    }
+    .navActive {
+      ul {
+        right: 0;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}

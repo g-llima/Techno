@@ -13,7 +13,9 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-const CONNECTION_URL = process.env.REACT_APP_MONGODB_CONNECTION_URL;
+const CONNECTION_URL =
+  process.env.REACT_APP_MONGODB_CONNECTION_URL ||
+  "mongodb+srv://gabriel:05130202Ga@cluster0.wfg8d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const PORT = process.env.REACT_APP_PORT || 5000;
 
 mongoose
