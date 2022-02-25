@@ -1,0 +1,96 @@
+.post {
+  max-width: 320px;
+  border-radius: 20px;
+  background: var(--darkest_gray-color);
+  color: var(--white-color);
+  -webkit-box-shadow: 2px 3px 5px #dbdbdb;
+          box-shadow: 2px 3px 5px #dbdbdb;
+  overflow: hidden;
+}
+
+.post:hover img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.post .img_wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+.post img {
+  width: 100%;
+  height: 180px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.post .content {
+  padding: 1rem;
+}
+
+.post .content .tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.post .content .tags li {
+  font-weight: 300;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.post .content .title {
+  margin: 1rem 0;
+  font-size: 23px;
+}
+
+.post .content .description {
+  font-weight: 300;
+  font-size: 13px;
+  margin-bottom: 2rem;
+}
+
+.post .content .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.post .content .buttons button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--orange-color);
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+
+.post .content .buttons button:hover i {
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+}
+
+.post .content .buttons button i {
+  margin-right: 10px;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+/*# sourceMappingURL=post.css.map */
