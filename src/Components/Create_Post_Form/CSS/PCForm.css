@@ -1,0 +1,65 @@
+.PCForm {
+  max-width: 320px;
+  margin: 3rem;
+}
+
+.PCForm fieldset {
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 2px solid var(--orange-color);
+  color: var(--orange-color);
+  border-radius: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.PCForm fieldset input {
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid #333;
+  color: var(--darkest_gray-color);
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+
+.PCForm fieldset input:hover, .PCForm fieldset input:focus {
+  border-color: var(--orange-color);
+}
+
+.PCForm fieldset button {
+  padding: 10px;
+  border-radius: 3px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.PCForm fieldset .createBTN {
+  background: var(--orange-color);
+  color: var(--white-color);
+  border: 1px solid var(--orange-color);
+  margin: 10px 0;
+}
+
+.PCForm fieldset .createBTN:hover {
+  background: transparent;
+  color: var(--orange-color);
+}
+
+.PCForm fieldset .clearBTN {
+  background: var(--darkest_gray-color);
+  color: var(--white-color);
+  border: 1px solid var(--darkest_gray-color);
+  margin-bottom: 10px;
+}
+
+.PCForm fieldset .clearBTN:hover {
+  background: var(--dark_gray-color);
+}
+/*# sourceMappingURL=PCForm.css.map */

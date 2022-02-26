@@ -1,0 +1,55 @@
+.PCForm {
+  max-width: 320px;
+  margin: 3rem;
+
+  fieldset {
+    padding: 1rem;
+    display: flex;
+    border: 2px solid var(--orange-color);
+    color: var(--orange-color);
+    border-radius: 5px;
+    flex-direction: column;
+
+    input {
+      margin: 5px 0;
+      padding: 5px;
+      border-radius: 3px;
+      outline: none;
+      border: 1px solid #333;
+      color: var(--darkest_gray-color);
+      transition: all 0.1s;
+
+      &:hover,
+      &:focus {
+        border-color: var(--orange-color);
+      }
+    }
+    button {
+      padding: 10px;
+      border-radius: 3px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .createBTN {
+      background: var(--orange-color);
+      color: var(--white-color);
+      border: 1px solid var(--orange-color);
+      margin: 10px 0;
+
+      &:hover {
+        background: transparent;
+        color: var(--orange-color);
+      }
+    }
+    .clearBTN {
+      background: var(--darkest_gray-color);
+      color: var(--white-color);
+      border: 1px solid var(--darkest_gray-color);
+      margin-bottom: 10px;
+
+      &:hover {
+        background: var(--dark_gray-color);
+      }
+    }
+  }
+}
