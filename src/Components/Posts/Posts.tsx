@@ -29,11 +29,11 @@ function Posts() {
 
   return (
     <div className="posts">
-      {postsArray.map((item, index) => (
+      {posts.map((item: any, index: number) => (
         <Post
           key={index}
-          imgLink={item.imgLink}
-          title={item.title}
+          imgLink={item.selectedFile}
+          title={item.author}
           tags={item.tags}
           description={item.description}
         />

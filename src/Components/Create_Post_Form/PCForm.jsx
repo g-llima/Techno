@@ -21,11 +21,32 @@ function PCForm() {
   };
   const clear = () => {};
 
+  const uploadImg = async (e) => {
+    const base64 = await convertBase64(e.target.files[0]);
+    setFormData({ ...formData, selectedFile: base64 });
+  };
+
+  function convertBase64(file) {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  }
+
   return (
     <form onSubmit={handleSubmit} method="POST" className="PCForm">
       <fieldset>
         <legend>Criar novo post</legend>
         <input
+          required
           type="text"
           name="author"
           placeholder="Autor"
@@ -33,6 +54,7 @@ function PCForm() {
           onChange={(e) => setFormData({ ...formData, author: e.target.value })}
         />
         <input
+          required
           type="text"
           name="title"
           placeholder="Título"
@@ -40,6 +62,7 @@ function PCForm() {
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         />
         <input
+          required
           type="text"
           name="description"
           placeholder="Descrição"
@@ -49,6 +72,7 @@ function PCForm() {
           }
         />
         <input
+          required
           type="text"
           name="tags"
           placeholder="Tags"
@@ -62,12 +86,11 @@ function PCForm() {
           Limpar
         </button>
         <div className="fileInput">
-          <FileBase
+          <input
+            required
+            accept=".jpg, .jpeg, .png"
             type="file"
-            multiple={false}
-            onDone={({ base64 }) =>
-              setFormData({ ...FormData, selectedFile: base64 })
-            }
+            onChange={(e) => uploadImg(e)}
           />
         </div>
       </fieldset>
