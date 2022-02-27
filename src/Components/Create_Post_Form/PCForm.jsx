@@ -1,6 +1,9 @@
 import { useState } from "react";
-import "./CSS/PCForm.css";
 import FileBase from "react-file-base64";
+import { useDispatch } from "react-redux";
+
+import { createPost } from "../../Actions/posts.js";
+import "./CSS/PCForm.css";
 
 function PCForm() {
   const [formData, setFormData] = useState({
@@ -8,9 +11,14 @@ function PCForm() {
     title: "",
     description: "",
     tags: "",
+    selectedFile: "",
   });
+  const dispatch = useDispatch();
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createPost(formData));
+  };
   const clear = () => {};
 
   return (
@@ -57,7 +65,9 @@ function PCForm() {
           <FileBase
             type="file"
             multiple={false}
-            onDone={({ base64 }) => setFormData({ ...FormData, file: base64 })}
+            onDone={({ base64 }) =>
+              setFormData({ ...FormData, selectedFile: base64 })
+            }
           />
         </div>
       </fieldset>

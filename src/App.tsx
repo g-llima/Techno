@@ -3,8 +3,7 @@ import "./Global CSS/App.css";
 import { useDispatch } from "react-redux";
 
 import Header from "./Components/Header/Header";
-import Posts from "./Components/Posts/Posts";
-import PCForm from "./Components/Create_Post_Form/PCForm";
+import Home from "./Pages/Home/HomePage";
 
 import { getPosts } from "./Actions/posts.js";
 
@@ -18,8 +17,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Posts />
-      <PCForm />
+      <Home />
     </div>
   );
 }

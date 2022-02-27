@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 const postInterface = mongoose.Schema({
   title: String,
-  message: String,
-  creator: String,
+  description: String,
+  author: String,
   tags: [String],
   selectedFile: String,
   linkeCount: {
@@ -16,6 +16,6 @@ const postInterface = mongoose.Schema({
   },
 });
 
-const PostMessage = mongoose.model("PostMessage", postInterface);
+let PostMessage = mongoose.model("PostMessage", postInterface);
 
 export default PostMessage;
