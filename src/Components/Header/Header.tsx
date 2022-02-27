@@ -51,14 +51,18 @@ function Header() {
               </Link>
             </li>
             <li className="mobileOnly">
-              <button className="subBTN" onClick={() => setIsMenuOpen(false)}>
-                LOGIN
-              </button>
+              <Link to="/auth">
+                <button className="subBTN" onClick={() => setIsMenuOpen(false)}>
+                  SIGN UP
+                </button>
+              </Link>
             </li>
           </ul>
         </nav>
 
-        <button className="subBTN desktopOnly">LOGIN</button>
+        <Link to="/auth">
+          <button className="subBTN desktopOnly">SIGN UP</button>
+        </Link>
 
         <button className="menuBTN" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <i className={`far fa-${isMenuOpen ? "times" : "bars"}`}></i>

@@ -1,0 +1,118 @@
+@mixin gridPos($elementName, $colStart, $rowStart, $colEnd, $rowEnd) {
+  &[name="#{$elementName}"] {
+    grid-column: #{$colStart} / #{$colEnd};
+    grid-row: #{$rowStart} / #{$rowEnd};
+  }
+}
+.auth {
+  max-width: 500px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  margin: 0 auto;
+  box-shadow: 2px 3px 5px #dbdbdb;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  color: var(--darkest_gray-color);
+
+  .auth__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      i {
+        font-size: 2rem;
+        background: var(--orange-color);
+        border-radius: 50%;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70px;
+        height: 70px;
+        margin-bottom: 0.8rem;
+      }
+    }
+    .body {
+      display: grid;
+      margin-top: 2rem;
+      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    input {
+      padding: 1rem;
+      outline: none;
+      border: 1px solid #dbdbdb;
+      color: var(--darkest_gray-color);
+      border-radius: 3px;
+      transition: all 0.2s;
+      @include gridPos(firstname, 1, 1, 2, 2);
+      @include gridPos(lastname, 2, 1, 3, 2);
+      @include gridPos(email, 1, 2, 3, 3);
+      @include gridPos(password, 1, 3, 3, 4);
+      @include gridPos(passwordr, 1, 4, 3, 5);
+
+      &:focus,
+      &:hover {
+        border-color: var(--orange-color);
+      }
+    }
+    button {
+      grid-column: 1 / 3;
+      padding: 10px;
+      margin-top: 1rem;
+      border-radius: 3px;
+      outline: none;
+      border: 1px solid var(--orange-color);
+      background: var(--orange-color);
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background: transparent;
+        color: var(--orange-color);
+      }
+    }
+    p {
+      margin-top: 2rem;
+      font-weight: 300;
+
+      a {
+        color: var(--orange-color);
+      }
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .auth {
+    width: 300px;
+    padding: 2rem 0.2rem;
+
+    .auth__content {
+      .body {
+        gap: 0;
+        grid-template-columns: 1fr;
+      }
+      input {
+        padding: 0.5rem;
+        margin: 0.2rem 0;
+        @include gridPos(firstname, 1, 1, 3, 2);
+        @include gridPos(lastname, 2, 2, 3, 3);
+        @include gridPos(email, 1, 3, 3, 4);
+        @include gridPos(password, 1, 4, 3, 5);
+        @include gridPos(passwordr, 1, 5, 3, 6);
+      }
+      button {
+        padding: 5px;
+      }
+    }
+  }
+}
