@@ -4,7 +4,7 @@ const postInterface = mongoose.Schema({
   title: String,
   description: String,
   author: String,
-  tags: [String],
+  tag: String,
   selectedFile: String,
   linkeCount: {
     type: Number,

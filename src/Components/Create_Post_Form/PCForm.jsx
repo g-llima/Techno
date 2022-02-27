@@ -1,5 +1,4 @@
 import { useState } from "react";
-import FileBase from "react-file-base64";
 import { useDispatch } from "react-redux";
 
 import { createPost } from "../../Actions/posts.js";
@@ -10,7 +9,7 @@ function PCForm() {
     author: "",
     title: "",
     description: "",
-    tags: "",
+    tag: "",
     selectedFile: "",
   });
   const dispatch = useDispatch();
@@ -19,7 +18,16 @@ function PCForm() {
     e.preventDefault();
     dispatch(createPost(formData));
   };
-  const clear = () => {};
+  const clear = () => {
+    setFormData({
+      author: "",
+      title: "",
+      description: "",
+      tag: "",
+      selectedFile: "",
+    });
+    document.getElementById("PCForm").reset();
+  };
 
   const uploadImg = async (e) => {
     const base64 = await convertBase64(e.target.files[0]);
@@ -42,7 +50,7 @@ function PCForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} method="POST" className="PCForm">
+    <form onSubmit={handleSubmit} method="POST" className="PCForm" id="PCForm">
       <fieldset>
         <legend>Criar novo post</legend>
         <input
@@ -57,6 +65,7 @@ function PCForm() {
           required
           type="text"
           name="title"
+          maxLength="21"
           placeholder="Título"
           value={formData.title}
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
@@ -74,10 +83,10 @@ function PCForm() {
         <input
           required
           type="text"
-          name="tags"
-          placeholder="Tags"
-          value={formData.tags}
-          onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
+          name="tag"
+          placeholder="Tag"
+          value={formData.tag}
+          onChange={(e) => setFormData({ ...formData, tag: e.target.value })}
         />
         <button type="submit" className="createBTN">
           Criar

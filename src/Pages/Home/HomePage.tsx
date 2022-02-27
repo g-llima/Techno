@@ -7,10 +7,10 @@ import PCForm from "../../Components/Create_Post_Form/PCForm";
 function Home() {
   return (
     <div className="homePage">
-      <div>
+      <div className="postsside">
         <Posts />
       </div>
-      <div>
+      <div className="pcformside">
         <PCForm />
       </div>
     </div>

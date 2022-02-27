@@ -1,8 +1,10 @@
+import { actionsEnum } from "../ActionsEnum/ActionsEnum.js";
+
 export default (posts = [], action) => {
   switch (action.type) {
-    case "FETCH_ALL":
+    case actionsEnum.FETCH_ALL:
       return action.payload;
-    case "CREATE":
+    case actionsEnum.CREATE:
       return [...posts, action.payload];
     default:
       return posts;

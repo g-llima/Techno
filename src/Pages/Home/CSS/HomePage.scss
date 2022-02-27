@@ -1,5 +1,11 @@
 .homePage {
-  display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  align-items: center;
+  overflow: hidden;
+
+  .postsside {
+    max-width: 60%;
+    min-width: 320px;
+  }
 }
