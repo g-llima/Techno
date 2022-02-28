@@ -153,8 +153,9 @@
   font-weight: 300;
 }
 
-.auth .auth__content p a {
+.auth .auth__content p span {
   color: var(--orange-color);
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 500px) {

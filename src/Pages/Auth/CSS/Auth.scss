@@ -85,8 +85,9 @@
       margin-top: 2rem;
       font-weight: 300;
 
-      a {
+      span {
         color: var(--orange-color);
+        cursor: pointer;
       }
     }
   }
