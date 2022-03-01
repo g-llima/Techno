@@ -7,7 +7,7 @@ import Header from "./Components/Header/Header";
 import Home from "./Pages/Home/HomePage";
 import Auth from "./Pages/Auth/Auth";
 
-import { getPosts } from "./Actions/posts.js";
+import { getPosts } from "./Actions/actions.js";
 
 function App() {
   const dispatch = useDispatch();

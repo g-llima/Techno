@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { createPost } from "../../Actions/posts.js";
+import { createPost } from "../../Actions/actions.js";
 import "./CSS/PCForm.css";
 
 function PCForm() {
