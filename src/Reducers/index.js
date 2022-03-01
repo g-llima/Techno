@@ -11,5 +11,15 @@ const posts = (posts = [], action) => {
       return posts;
   }
 };
+const user = (user = {}, action) => {
+  switch (action.type) {
+    case actionsEnum.LOGIN:
+      return action.payload;
+    case actionsEnum.LOGOUT:
+      return (user = {});
+    default:
+      return user;
+  }
+};
 
-export default combineReducers({ posts });
+export default combineReducers({ posts, user });

@@ -5,6 +5,8 @@ import "./CSS/Posts.css";
 
 function Posts() {
   const posts = useSelector((state: RootStateOrAny) => state.posts);
+  const user = useSelector((state: RootStateOrAny) => state.user);
+  console.log(user);
 
   console.log(posts);
   return (

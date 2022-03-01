@@ -18,3 +18,11 @@ export const createPost = (post) => async (dispatch) => {
     console.log(error.message);
   }
 };
+export const authRegister = (user) => async (dispatch) => {
+  try {
+    const { data } = await api.registerAuth(user);
+    dispatch({ type: actionsEnum.LOGIN, payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};

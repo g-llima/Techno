@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import postRoutes from "./routes/posts.js";
+import authRoutes from "./routes/auth.js";
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/posts", postRoutes);
+app.use("/register", authRoutes);
 
 const CONNECTION_URL = process.env.REACT_APP_MONGODB_CONNECTION_URL;
 const PORT = process.env.REACT_APP_PORT || 5000;

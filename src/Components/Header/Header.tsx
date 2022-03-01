@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { RootStateOrAny, useSelector } from "react-redux";
 import "./CSS/header.css";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [shrink, setShrink] = useState(false);
+
+  const user = useSelector((state: RootStateOrAny) => state.user);
 
   window.addEventListener("resize", () => setIsMenuOpen(false));
   window.addEventListener("scroll", () => {
@@ -60,9 +63,13 @@ function Header() {
           </ul>
         </nav>
 
-        <Link to="/auth">
-          <button className="subBTN desktopOnly">SIGN UP</button>
-        </Link>
+        {Object.keys(user).length === 0 ? (
+          <Link to="/auth">
+            <button className="subBTN desktopOnly">SIGN UP</button>
+          </Link>
+        ) : (
+          <h4>{`${user.fname.toUpperCase()} ${user.lname.toUpperCase()}`}</h4>
+        )}
 
         <button className="menuBTN" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <i className={`far fa-${isMenuOpen ? "times" : "bars"}`}></i>
