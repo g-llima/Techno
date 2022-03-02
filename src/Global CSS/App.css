@@ -18,6 +18,10 @@
   font-weight: 500;
 }
 
+body {
+  height: 150vh;
+}
+
 html {
   scroll-behavior: smooth;
 }

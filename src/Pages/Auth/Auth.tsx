@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import mongoose from "mongoose";
+import { useNavigate } from "react-router-dom";
 
 import "./CSS/Auth.css";
 import { authRegister, authLogin } from "../../Actions/actions.js";
@@ -16,6 +16,7 @@ function Auth() {
   });
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function clearForm() {
     setAuthData({ fname: "", lname: "", email: "", pass: "", rpass: "" });
@@ -26,6 +27,7 @@ function Auth() {
       console.log("Senhas diferentes");
     } else {
       dispatch(authRegister(authData));
+      navigate("/");
       clearForm();
     }
   };
@@ -33,6 +35,7 @@ function Auth() {
   const submitLogin = async (e: any) => {
     e.preventDefault();
     dispatch(authLogin(authData));
+    navigate("/");
     clearForm();
   };
 

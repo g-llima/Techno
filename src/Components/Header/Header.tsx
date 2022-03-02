@@ -6,10 +6,14 @@ import "./CSS/header.css";
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [shrink, setShrink] = useState(false);
+  const [showUser, setShowUser] = useState(false);
 
   const user = useSelector((state: RootStateOrAny) => state.user);
 
-  window.addEventListener("resize", () => setIsMenuOpen(false));
+  window.addEventListener("resize", () => {
+    setIsMenuOpen(false);
+    setShowUser(false);
+  });
   window.addEventListener("scroll", () => {
     if (Math.ceil(window.scrollY) > 201) {
       if (shrink === true) return;
@@ -60,6 +64,26 @@ function Header() {
                 </button>
               </Link>
             </li>
+            <li className="mobileOnly">
+              <div className="user">
+                <div className="img__wrapper">
+                  <img
+                    src="http://placehold.jp/150x150.png"
+                    alt={user.fname.toUpperCase()}
+                    onClick={() => setShowUser(!showUser)}
+                  />
+                </div>
+                <div className="body">
+                  <div className={`content ${showUser ? "active" : null}`}>
+                    <h6>{`${user.fname.toUpperCase()} ${user.lname.toUpperCase()}`}</h6>
+                    <button className="conta">Conta</button>
+                    <button className="logout">
+                      <i className="far fa-sign-out"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
           </ul>
         </nav>
 
@@ -68,7 +92,24 @@ function Header() {
             <button className="subBTN desktopOnly">SIGN UP</button>
           </Link>
         ) : (
-          <h4>{`${user.fname.toUpperCase()} ${user.lname.toUpperCase()}`}</h4>
+          <div className="user desktopOnly">
+            <div className="img__wrapper">
+              <img
+                src="http://placehold.jp/150x150.png"
+                alt={user.fname.toUpperCase()}
+                onClick={() => setShowUser(!showUser)}
+              />
+            </div>
+            <div className="body">
+              <div className={`content ${showUser ? "active" : null}`}>
+                <h6>{`${user.fname.toUpperCase()} ${user.lname.toUpperCase()}`}</h6>
+                <button className="conta">Conta</button>
+                <button className="logout">
+                  <i className="far fa-sign-out"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         )}
 
         <button className="menuBTN" onClick={() => setIsMenuOpen(!isMenuOpen)}>
