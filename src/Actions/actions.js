@@ -1,6 +1,20 @@
 import * as api from "../Api/index.js";
 import { actionsEnum } from "../ActionsEnum/ActionsEnum.js";
 
+import mongoose from "mongoose";
+
+const userSchema = mongoose.Schema(
+  {
+    fname: { type: String, required: true },
+    lname: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    pass: { type: String, required: true },
+  },
+  { collection: "users" }
+);
+
+const userModel = mongoose.model("UserSchema", userSchema);
+
 // Action Creators
 export const getPosts = () => async (dispatch) => {
   try {
@@ -21,7 +35,25 @@ export const createPost = (post) => async (dispatch) => {
 export const authRegister = (user) => async (dispatch) => {
   try {
     const { data } = await api.registerAuth(user);
-    dispatch({ type: actionsEnum.LOGIN, payload: data });
+    dispatch({
+      type: actionsEnum.LOGIN,
+      payload: { _id: data._id, fname: data.fname, lname: data.lname },
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+export const authLogin = (user) => async (dispatch) => {
+  try {
+    const { data } = await api.loginAuth(user);
+    dispatch({
+      type: actionsEnum.LOGIN,
+      payload: {
+        _id: data._id,
+        fname: data.fname,
+        lname: data.lname,
+      },
+    });
   } catch (error) {
     console.log(error.message);
   }

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import mongoose from "mongoose";
 
 import "./CSS/Auth.css";
-import { authRegister } from "../../Actions/actions.js";
+import { authRegister, authLogin } from "../../Actions/actions.js";
 
 function Auth() {
   const [isSignIn, setIsSignIn] = useState(false);
@@ -19,7 +20,7 @@ function Auth() {
   function clearForm() {
     setAuthData({ fname: "", lname: "", email: "", pass: "", rpass: "" });
   }
-  const handleSubmit = (e: any) => {
+  const submitRegister = (e: any) => {
     e.preventDefault();
     if (authData.pass !== authData.rpass) {
       console.log("Senhas diferentes");
@@ -29,6 +30,12 @@ function Auth() {
     }
   };
 
+  const submitLogin = async (e: any) => {
+    e.preventDefault();
+    dispatch(authLogin(authData));
+    clearForm();
+  };
+
   return (
     <div className="auth">
       <div className="auth__content">
@@ -36,7 +43,11 @@ function Auth() {
           <i className="fal fa-lock-alt"></i>
           <h2>Sign {isSignIn ? "In" : "Up"}</h2>
         </div>
-        <form onSubmit={handleSubmit} method="post" className="body">
+        <form
+          onSubmit={isSignIn ? submitLogin : submitRegister}
+          method="post"
+          className="body"
+        >
           {!isSignIn && (
             <>
               <input
