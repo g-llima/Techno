@@ -69,13 +69,13 @@ function Header() {
                 <div className="img__wrapper">
                   <img
                     src="http://placehold.jp/150x150.png"
-                    alt={user.fname.toUpperCase()}
+                    alt={user.fname}
                     onClick={() => setShowUser(!showUser)}
                   />
                 </div>
                 <div className="body">
                   <div className={`content ${showUser ? "active" : null}`}>
-                    <h6>{`${user.fname.toUpperCase()} ${user.lname.toUpperCase()}`}</h6>
+                    <h6>{`${user.fname} ${user.lname}`}</h6>
                     <button className="conta">Conta</button>
                     <button className="logout">
                       <i className="far fa-sign-out"></i>
